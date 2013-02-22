@@ -8,9 +8,15 @@ Kohana Devtools Module
 - Includes very useful Route tester
 - Easy and readable access to all your app's routes, configs, messages and i18n's
 
+
 ## Preview Screenshot
 
 ![Preview!](http://i.imgur.com/RKwiaT4.png)
+
+
+## Compatibility
+
+- Kohana 3.3.x
 
 
 ## Installation
@@ -21,6 +27,7 @@ Kohana Devtools Module
 ```php
 'devtools'     => MODPATH.'devtools',      // Devtools
 ```
+
 
 ## Configuration
 
