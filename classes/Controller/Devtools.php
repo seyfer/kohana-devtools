@@ -1,6 +1,6 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-class Controller_devtools extends Controller {
+class Controller_Devtools extends Controller {
 
 	public $template;
 
