@@ -5,10 +5,10 @@
 foreach ($configs as $path => $name)
 {
 	echo "<h3>$path</h3>";
-	
+
 	try
 	{
-		echo Debug::dump(Kohana::config($name));
+		echo Debug::vars(Kohana::config($name));
 	}
 	catch (exception $e)
 	{
