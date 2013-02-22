@@ -151,7 +151,7 @@ small { font-size:0.8em; }
 #wrap { width:960px; margin:0 auto; }
 
 #menu { width:168px; padding:0 20px 0 0; float:left; border-right:2px solid #ddd; }
-#menu h2 { text-align:right; }
+#menu h2, #menu h3 { text-align:right; }
 #menu h2 small { font-size:0.7em }
 #menu ul { list-style:none; padding:0; margin:0; text-align:right; }
 #menu ul .active { font-weight:bold; }
@@ -165,11 +165,18 @@ small { font-size:0.8em; }
 
 </head>
 <body>
-	
+
 	<?php $action = Request::$current->action(); ?>
 	<div id="wrap">
 		<div id="menu">
-			<h2>devtools<br /><small> by bluehawk</small></h2>
+			<h2>
+                devtools<br />
+                <small>by <a href="https://github.com/bluehawk">bluehawk</a></small>
+            </h2>
+            <h3>
+                updates<br />
+                <small>by <a href="https://github.com/michal-m">michal-m</a></small>
+            </h3>
 			<ul>
 				<li><?php echo html::anchor(Route::get('devtools')->uri(array('action'=>'info')),'Kohana info',array('class'=>($action=='info'?'active':''))) ?></li>
 				<li><?php echo html::anchor(Route::get('devtools')->uri(array('action'=>'extension')),'Transparent extension',array('class'=>($action=='extension'?'active':''))) ?></li>
