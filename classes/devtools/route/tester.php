@@ -6,16 +6,16 @@
  * @author     Michael Peters
  */
 class Devtools_Route_Tester {
-	
+
 	// The url for this test
 	public $url;
-	
+
 	// The route this url matched
 	public $route = FALSE;
-	
+
 	// The params the route returned
 	public $params;
-	
+
 	// The optional expected params from the config
 	public $expected_params = FALSE;
 
@@ -31,24 +31,26 @@ class Devtools_Route_Tester {
 		{
 			$tests = array($tests);
 		}
-		
+
 		$array = array();
-		
+
 		// Get the url and optional expected_params from the config
 		foreach ($tests as $key => $value)
 		{
 			$current = new Route_Tester();
-			
+
 			if (is_array($value))
 			{
-				$current->url = $key;
+				$url = $key;
 				$current->expected_params = $value;
 			}
 			else
 			{
-				$current->url = $value;
+				$url = $value;
 			}
-		
+
+			$current->url = trim($url, '/');
+
 			// Test each route, and save the route and params if it matches
 			foreach (Route::all() as $route)
 			{
@@ -59,36 +61,36 @@ class Devtools_Route_Tester {
 					break;
 				}
 			}
-			
+
 			$array[] = $current;
-			
+
 		}
-		
+
 		return $array;
-		
+
 	}
-	
+
 	public function get_params()
 	{
 		$array = array();
-		
+
 		// Add the result and expected keys to the array
 		foreach ($this->params as $param => $value)
 		{
 			$array[$param]['result'] = $value;
 		}
-		
+
 		foreach ($this->expected_params as $param => $value)
 		{
 			$array[$param]['expected'] = $value;
 		}
-		
+
 		// Not the prettiest code in the word (wtf arrays), but oh well
 		foreach ($array as $item => $options)
 		{
 			// Assume they don't match.
 			$array[$item]['error'] = true;
-			
+
 			if ( ! isset($options['expected']))
 			{
 				$array[$item]['expected'] = '[none]';
@@ -102,7 +104,7 @@ class Devtools_Route_Tester {
 				$array[$item]['error'] = false;
 			}
 		}
-		
+
 		return $array;
 	}
 
