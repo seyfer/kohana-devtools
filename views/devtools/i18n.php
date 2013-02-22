@@ -5,10 +5,10 @@
 foreach ($i18n as $path => $name)
 {
 	echo "<h3>$path</h3>";
-	
+
 	try
 	{
-		echo Debug::dump(I18n::load($name));
+		echo Debug::vars(I18n::load($name));
 	}
 	catch (exception $e)
 	{

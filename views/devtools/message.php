@@ -5,10 +5,10 @@
 foreach ($messages as $path => $name)
 {
 	echo "<h3>$path</h3>";
-	
+
 	try
 	{
-		echo Debug::dump(Kohana::message($name));
+		echo Debug::vars(Kohana::message($name));
 	}
 	catch (exception $e)
 	{
