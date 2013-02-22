@@ -8,7 +8,7 @@ foreach ($configs as $path => $name)
 
 	try
 	{
-		echo Debug::vars(Kohana::config($name));
+		echo Debug::vars(Kohana::$config->load($name));
 	}
 	catch (exception $e)
 	{
