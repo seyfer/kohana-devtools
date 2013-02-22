@@ -8,7 +8,7 @@
 	<title>Devtools</title>
 
 	<style type="text/css">
-	
+
 /*
 html5doctor.com Reset Stylesheet
 v1.6
@@ -111,8 +111,8 @@ hr {
 input, select {
     vertical-align:middle;
 }
-	
-	
+
+
 /* ================================================= */
 
 body {
@@ -126,12 +126,12 @@ p, ul, ol {
 
 h1 {
 	font-size:2.2em;   /* 14 * 2.2 = 30.8 */
-	line-height:0.681;  
+	line-height:0.681;
 	margin:0.681em 0;
 }
 
 h2 {
-	font-size:1.7em; 
+	font-size:1.7em;
 	line-height:0.882;
 	margin:0.882em 0;
 }
@@ -159,17 +159,17 @@ small { font-size:0.8em; }
 #menu ul a:hover { text-decoration:underline; }
 
 #main { float:right; width: 750px; padding-left: 20px; padding-bottom:2em; }
-		
-	
+
+
 	</style>
- 
+
 </head>
 <body>
 	
 	<?php $action = Request::$current->action(); ?>
 	<div id="wrap">
 		<div id="menu">
-			<h2>devtools<br /><small> by bluehawk</small></h3>
+			<h2>devtools<br /><small> by bluehawk</small></h2>
 			<ul>
 				<li><?php echo html::anchor(Route::get('devtools')->uri(array('action'=>'info')),'Kohana info',array('class'=>($action=='info'?'active':''))) ?></li>
 				<li><?php echo html::anchor(Route::get('devtools')->uri(array('action'=>'extension')),'Transparent extension',array('class'=>($action=='extension'?'active':''))) ?></li>
@@ -180,7 +180,7 @@ small { font-size:0.8em; }
 				<li><?php echo html::anchor(Route::get('devtools')->uri(array('action'=>'i18n')),'i18n dump',array('class'=>($action=='i18n'?'active':''))) ?></li>
 			</ul>
 		</div>
-		
+
 		<div id="main">
 			<?php echo $content; ?>
 		</div>
