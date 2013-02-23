@@ -2,6 +2,9 @@
 
 class Devtools_Core
 {
+    /**
+     * @var array Kohana environments
+     */
     public static $kohana_environments = array(
         10  => 'PRODUCTION',
         20  => 'STAGING',
