@@ -28,6 +28,36 @@ Kohana Devtools Module
 'devtools'     => MODPATH.'devtools',      // Devtools
 ```
 
+### Conditional Loading
+
+If you don't want to worry about disabling the module for non-DEVELOPMENT
+environments you can load on condition in your `bootstrap.php`, .e.g:
+
+```php
+/**
+ * Enable modules. Modules are referenced by a relative or absolute path.
+ */
+$modules = array(
+    // 'auth'       => MODPATH.'auth',       // Basic authentication
+    // 'cache'      => MODPATH.'cache',      // Caching with multiple backends
+    // 'codebench'  => MODPATH.'codebench',  // Benchmarking tool
+    // 'database'   => MODPATH.'database',   // Database access
+    // 'image'      => MODPATH.'image',      // Image manipulation
+    // 'minion'     => MODPATH.'minion',     // CLI Tasks
+    // 'orm'        => MODPATH.'orm',        // Object Relationship Mapping
+    // 'unittest'   => MODPATH.'unittest',   // Unit testing
+    // 'userguide'  => MODPATH.'userguide',  // User guide and API documentation
+);
+
+// Load Devtools module only if in DEVELOPMENT environment
+if (Kohana::$environment === Kohana::DEVELOPMENT)
+{
+    $modules['devtools'] = MODPATH.'devtools';
+}
+
+Kohana::modules($modules);
+```
+
 
 ## Configuration
 
