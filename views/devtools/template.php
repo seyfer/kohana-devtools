@@ -168,6 +168,12 @@ table { border-collapse: collapse; width: 100%; border:2px solid #ccc; }
     table tr:nth-child(odd) { background: #eee; }
     table td.pass { color: #191; }
     table td.fail { color: #911; }
+table.phpinfo tr:nth-child(1) th { background-color: #555; color: #ccc; text-transform: uppercase;  }
+table.phpinfo td { word-break: break-all; word-wrap: break-word; }
+table.phpinfo td:nth-child(1) { font-weight: bold; min-width: 150px; white-space: nowrap; }
+table.phpinfo tr:nth-child(odd) td:nth-child(odd) { background-color: #ddd; }
+table.phpinfo tr:nth-child(even) td:nth-child(odd) { background-color: #eee; }
+table.phpinfo table.phpinfo td { white-space: normal; }
 #results { padding: 0.8em; color: #fff; font-size: 1.5em; }
 #results.pass { background: #191; }
 #results.fail { background: #911; }

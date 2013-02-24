@@ -1,3 +1,4 @@
+
 	<h1>Kohana Environment</h1>
 
 	<table cellspacing="0">
