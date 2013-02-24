@@ -179,6 +179,7 @@ small { font-size:0.8em; }
             </h3>
 			<ul>
 				<li><?php echo html::anchor(Route::get('devtools')->uri(array('action'=>'info')),'Kohana info',array('class'=>($action=='info'?'active':''))) ?></li>
+				<li><?php echo html::anchor(Route::get('devtools')->uri(array('action'=>'phpinfo')),'PHP info',array('class'=>($action=='phpinfo'?'active':''))) ?></li>
 				<li><?php echo html::anchor(Route::get('devtools')->uri(array('action'=>'extension')),'Transparent extension',array('class'=>($action=='extension'?'active':''))) ?></li>
 				<li><?php echo html::anchor(Route::get('devtools')->uri(array('action'=>'routetest')),'Route tester',array('class'=>($action=='routetest'?'active':''))) ?></li>
 				<li><?php echo html::anchor(Route::get('devtools')->uri(array('action'=>'routes')),'Route dump',array('class'=>($action=='routes'?'active':''))) ?></li>
