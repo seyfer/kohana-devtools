@@ -160,7 +160,17 @@ small { font-size:0.8em; }
 
 #main { float:right; width: 750px; padding-left: 20px; padding-bottom:2em; }
 
-
+code { font-family: monaco, monospace; }
+table { border-collapse: collapse; width: 100%; border:2px solid #ccc; }
+    table th,
+    table td { padding: 0.4em; text-align: left; vertical-align: top; }
+    table th { width: 12em; }
+    table tr:nth-child(odd) { background: #eee; }
+    table td.pass { color: #191; }
+    table td.fail { color: #911; }
+#results { padding: 0.8em; color: #fff; font-size: 1.5em; }
+#results.pass { background: #191; }
+#results.fail { background: #911; }
 	</style>
 
 </head>
@@ -179,6 +189,7 @@ small { font-size:0.8em; }
             </h3>
 			<ul>
 				<li><?php echo html::anchor(Route::get('devtools')->uri(array('action'=>'info')),'Kohana info',array('class'=>($action=='info'?'active':''))) ?></li>
+				<li><?php echo html::anchor(Route::get('devtools')->uri(array('action'=>'phpinfo')),'PHP info',array('class'=>($action=='phpinfo'?'active':''))) ?></li>
 				<li><?php echo html::anchor(Route::get('devtools')->uri(array('action'=>'extension')),'Transparent extension',array('class'=>($action=='extension'?'active':''))) ?></li>
 				<li><?php echo html::anchor(Route::get('devtools')->uri(array('action'=>'routetest')),'Route tester',array('class'=>($action=='routetest'?'active':''))) ?></li>
 				<li><?php echo html::anchor(Route::get('devtools')->uri(array('action'=>'routes')),'Route dump',array('class'=>($action=='routes'?'active':''))) ?></li>
