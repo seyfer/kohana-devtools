@@ -89,17 +89,17 @@
 		<tr>
 			<th>Cache Directory</th>
 			<?php if (is_dir(APPPATH) AND is_dir(APPPATH.'cache') AND is_writable(APPPATH.'cache')): ?>
-				<td class="pass"><?php echo APPPATH.'cache/' ?></td>
+				<td class="pass"><?php echo APPPATH.'cache'.DIRECTORY_SEPARATOR ?></td>
 			<?php else: $failed = TRUE ?>
-				<td class="fail">The <code><?php echo APPPATH.'cache/' ?></code> directory is not writable.</td>
+				<td class="fail">The <code><?php echo APPPATH.'cache'.DIRECTORY_SEPARATOR ?></code> directory is not writable.</td>
 			<?php endif ?>
 		</tr>
 		<tr>
 			<th>Logs Directory</th>
 			<?php if (is_dir(APPPATH) AND is_dir(APPPATH.'logs') AND is_writable(APPPATH.'logs')): ?>
-				<td class="pass"><?php echo APPPATH.'logs/' ?></td>
+				<td class="pass"><?php echo APPPATH.'logs'.DIRECTORY_SEPARATOR ?></td>
 			<?php else: $failed = TRUE ?>
-				<td class="fail">The <code><?php echo APPPATH.'logs/' ?></code> directory is not writable.</td>
+				<td class="fail">The <code><?php echo APPPATH.'logs'.DIRECTORY_SEPARATOR ?></code> directory is not writable.</td>
 			<?php endif ?>
 		</tr>
 		<tr>
