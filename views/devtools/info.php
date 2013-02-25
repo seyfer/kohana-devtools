@@ -28,7 +28,7 @@
 		</tr>
 		<tr>
 			<th>Kohana::$environment</th>
-			<td><?php echo Kohana::$environment ?></td>
+            <td><?php echo Arr::get(Devtools::$kohana_environments, Kohana::$environment, '<em>unknown</em>') ?></td>
 		</tr>
 		<tr>
 			<th>Kohana::init() settings</th>

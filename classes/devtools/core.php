@@ -3,6 +3,16 @@
 class Devtools_Core
 {
     /**
+     * @var array Kohana environments
+     */
+    public static $kohana_environments = array(
+        10  => 'PRODUCTION',
+        20  => 'STAGING',
+        30  => 'TESTING',
+        40  => 'DEVELOPMENT',
+    );
+
+    /**
      * Returns reformatted phpinfo() output. Uses phpBB's script from file:
      * phpBB/includes/acp/acp_php_info.php
      *
