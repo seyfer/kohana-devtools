@@ -180,11 +180,19 @@
 
 	<table cellspacing="0">
 		<tr>
+			<th>PECL HTTP Enabled</th>
+			<?php if (extension_loaded('http')): ?>
+				<td class="pass">Pass</td>
+			<?php else: ?>
+				<td class="fail">Kohana can use the <a href="http://php.net/http">http</a> extension for the Request_Client_External class.</td>
+			<?php endif ?>
+		</tr>
+		<tr>
 			<th>cURL Enabled</th>
 			<?php if (extension_loaded('curl')): ?>
 				<td class="pass">Pass</td>
 			<?php else: ?>
-				<td class="fail">Kohana requires <a href="http://php.net/curl">cURL</a> for the Remote class.</td>
+				<td class="fail">Kohana can use the <a href="http://php.net/curl">cURL</a> extension for the Request_Client_External class.</td>
 			<?php endif ?>
 		</tr>
 		<tr>
@@ -201,6 +209,14 @@
 				<td class="pass">Pass</td>
 			<?php else: ?>
 				<td class="fail">Kohana requires <a href="http://php.net/gd">GD</a> v2 for the Image class.</td>
+			<?php endif ?>
+		</tr>
+		<tr>
+			<th>MySQL Enabled</th>
+			<?php if (function_exists('mysql_connect')): ?>
+				<td class="pass">Pass</td>
+			<?php else: ?>
+				<td class="fail">Kohana can use the <a href="http://php.net/mysql">MySQL</a> extension to support MySQL databases.</td>
 			<?php endif ?>
 		</tr>
 		<tr>
