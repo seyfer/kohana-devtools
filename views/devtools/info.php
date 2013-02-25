@@ -1,21 +1,6 @@
 
-	<style type="text/css">
-	
-	code { font-family: monaco, monospace; }
-	table { border-collapse: collapse; width: 100%; border:2px solid #ccc; }
-		table th,
-		table td { padding: 0.4em; text-align: left; vertical-align: top; }
-		table th { width: 12em; }
-		table tr:nth-child(odd) { background: #eee; }
-		table td.pass { color: #191; }
-		table td.fail { color: #911; }
-	#results { padding: 0.8em; color: #fff; font-size: 1.5em; }
-	#results.pass { background: #191; }
-	#results.fail { background: #911; }
-	</style>
-
 	<h1>Kohana Environment</h1>
-	
+
 	<table cellspacing="0">
 		<tr>
 			<th>Kohana Version</th>
@@ -43,7 +28,7 @@
 		</tr>
 		<tr>
 			<th>Kohana::$environment</th>
-			<td><?php echo Kohana::$environment ?></td>
+            <td><?php echo Arr::get(Devtools::$kohana_environments, Kohana::$environment, '<em>unknown</em>') ?></td>
 		</tr>
 		<tr>
 			<th>Kohana::init() settings</th>
@@ -56,9 +41,9 @@
 			"caching" = <?php echo Debug::dump(Kohana::$caching) ?></code></td>
 		</tr>
 	</table>
-	
+
 	<h2>Loaded Modules</h2>
-	
+
 	<?php if (count(Kohana::modules()) > 0): ?>
 		<table cellspacing="0">
 			<?php foreach (Kohana::modules() as $module => $path): ?>
@@ -73,9 +58,9 @@
 	<?php else: ?>
 	<p>No modules loaded</p>
 	<?php endif; ?>
-	
+
 	<h2>install.php tests</h2>
-	
+
 	<table cellspacing="0">
 		<tr>
 			<th>PHP Version</th>
@@ -104,17 +89,17 @@
 		<tr>
 			<th>Cache Directory</th>
 			<?php if (is_dir(APPPATH) AND is_dir(APPPATH.'cache') AND is_writable(APPPATH.'cache')): ?>
-				<td class="pass"><?php echo APPPATH.'cache/' ?></td>
+				<td class="pass"><?php echo APPPATH.'cache'.DIRECTORY_SEPARATOR ?></td>
 			<?php else: $failed = TRUE ?>
-				<td class="fail">The <code><?php echo APPPATH.'cache/' ?></code> directory is not writable.</td>
+				<td class="fail">The <code><?php echo APPPATH.'cache'.DIRECTORY_SEPARATOR ?></code> directory is not writable.</td>
 			<?php endif ?>
 		</tr>
 		<tr>
 			<th>Logs Directory</th>
 			<?php if (is_dir(APPPATH) AND is_dir(APPPATH.'logs') AND is_writable(APPPATH.'logs')): ?>
-				<td class="pass"><?php echo APPPATH.'logs/' ?></td>
+				<td class="pass"><?php echo APPPATH.'logs'.DIRECTORY_SEPARATOR ?></td>
 			<?php else: $failed = TRUE ?>
-				<td class="fail">The <code><?php echo APPPATH.'logs/' ?></code> directory is not writable.</td>
+				<td class="fail">The <code><?php echo APPPATH.'logs'.DIRECTORY_SEPARATOR ?></code> directory is not writable.</td>
 			<?php endif ?>
 		</tr>
 		<tr>
@@ -186,7 +171,7 @@
 			<?php endif ?>
 		</tr>
 	</table>
-	
+
 	<h3>Optional Tests</h3>
 
 	<p>
@@ -195,11 +180,19 @@
 
 	<table cellspacing="0">
 		<tr>
+			<th>PECL HTTP Enabled</th>
+			<?php if (extension_loaded('http')): ?>
+				<td class="pass">Pass</td>
+			<?php else: ?>
+				<td class="fail">Kohana can use the <a href="http://php.net/http">http</a> extension for the Request_Client_External class.</td>
+			<?php endif ?>
+		</tr>
+		<tr>
 			<th>cURL Enabled</th>
 			<?php if (extension_loaded('curl')): ?>
 				<td class="pass">Pass</td>
 			<?php else: ?>
-				<td class="fail">Kohana requires <a href="http://php.net/curl">cURL</a> for the Remote class.</td>
+				<td class="fail">Kohana can use the <a href="http://php.net/curl">cURL</a> extension for the Request_Client_External class.</td>
 			<?php endif ?>
 		</tr>
 		<tr>
@@ -216,6 +209,14 @@
 				<td class="pass">Pass</td>
 			<?php else: ?>
 				<td class="fail">Kohana requires <a href="http://php.net/gd">GD</a> v2 for the Image class.</td>
+			<?php endif ?>
+		</tr>
+		<tr>
+			<th>MySQL Enabled</th>
+			<?php if (function_exists('mysql_connect')): ?>
+				<td class="pass">Pass</td>
+			<?php else: ?>
+				<td class="fail">Kohana can use the <a href="http://php.net/mysql">MySQL</a> extension to support MySQL databases.</td>
 			<?php endif ?>
 		</tr>
 		<tr>
