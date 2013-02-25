@@ -23,6 +23,16 @@ class Controller_devtools extends Controller {
 	}
 
 	/**
+	 * Dump PHP info.
+     *
+     * @link http://phpbb.com Uses phpBB's phpinfo() cleaning functions form includes/acp/acp_php_info.php
+	 */
+	public function action_phpinfo()
+	{
+		$this->template->content = View::factory('devtools/phpinfo');
+	}
+
+	/**
 	 * Show all classes that are getting transparent extended
 	 */
 	public function action_extension()
