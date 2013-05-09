@@ -10,14 +10,14 @@ table { border-collapse: collapse; width: 100%; border:2px solid #ccc; }
 	#results { padding: 0.8em; color: #fff; font-size: 1.5em; }
 	#results.pass { background: #191; }
 	#results.fail { background: #911; }
-	
+
 </style>
 
 
 <h1>Route Dump</h1>
 
 <?php if (count(Route::all()) > 0): ?>
-	
+
 	<?php foreach (Route::all() as $route): ?>
 	<h3><?php echo Route::name($route) ?></h3>
 		<?php
@@ -32,7 +32,7 @@ table { border-collapse: collapse; width: 100%; border:2px solid #ccc; }
 		<table>
 			<tr>
 				<th>Route uri</th>
-				<td><code><?php echo html::chars($array['_uri']) ?></code></td>
+				<td><code><?php echo HTML::chars($array['_uri']) ?></code></td>
 			</tr>
 			<tr>
 				<th>Params with regex</th>
@@ -45,11 +45,11 @@ table { border-collapse: collapse; width: 100%; border:2px solid #ccc; }
 			</tr>
 			<tr>
 				<th>Compiled Regex</th>
-				<td><code><?php echo html::chars($array['_route_regex']) ?></code></td>
+				<td><code><?php echo HTML::chars($array['_route_regex']) ?></code></td>
 			</tr>
 		</table>
 	<?php endforeach; ?>
-	
+
 <?php else: ?>
 <p>No routes</p>
 <?php endif; ?>
