@@ -1,0 +1,44 @@
+{
+    "name": "seyfer/kohana-devtools",
+    "version": "3.3",
+    "type": "kohana-module",
+    "description": "Kohana developer tools",
+    "type": "kohana-module",
+    "authors": [
+        {
+            "name": "bluehawk",
+            "email": "michael@michaeldpeters.com",
+            "homepage": "http://michaeldpeters.com",
+            "role": "Developer"
+        },
+        {
+            "name": "michal-m",
+            "email": "michal.j.musial@gmail.com",
+            "homepage": "http://michalmusial.com/",
+            "role": "Developer"
+        },
+        {
+            "name": "seyfer",
+            "email": "seyferseed@mail.ru",
+            "homepage": "http://seyferseed.ru",
+            "role": "Maintainer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "composer/installers": "1.*"
+    },
+    "minimum-stability": "stable",
+    "autoload": {
+        "classmap": [
+            "classes/"
+        ]
+    },
+    "extra": {
+        "installer-paths": {
+            "vendor/kohana/modules/{$name}/": [
+                "type:kohana-module"
+            ]
+        }
+    }
+}
